@@ -1,8 +1,8 @@
-from controls import rpi3_servo_control
+from controls.rpi3_servo_control import Rpi3ServoControl
 import time
 
 
-class R2d2Arms:
+class Arms:
 
     def __init__(self, top_arm_pin, bottom_arm_pin):
         """
@@ -10,8 +10,8 @@ class R2d2Arms:
         :param top_arm_pin: Top Servo Pin.
         :param bottom_arm_pin: Bottom Servo Pin.
         """
-        self.r2_top_arm = rpi3_servo_control.Rpi3ServoControl(top_arm_pin)
-        self.r2_bottom_arm = rpi3_servo_control.Rpi3ServoControl(bottom_arm_pin)
+        self.r2_top_arm = Rpi3ServoControl(top_arm_pin)
+        self.r2_bottom_arm = Rpi3ServoControl(bottom_arm_pin)
 
         self.close_arms()
 
@@ -77,7 +77,7 @@ class R2d2Arms:
 
 
 if __name__ == '__main__':
-    arms = R2d2Arms(17, 4)
+    arms = Arms(17, 4)
     arms.open_arms()
     time.sleep(0.8)
     arms.close_arms()
