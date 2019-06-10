@@ -31,12 +31,40 @@ class Arms:
         self.r2_top_arm.set_angle(180.0)
         self.r2_bottom_arm.set_angle(180.0)
 
+    def open_top_arm(self):
+        """
+        Open the top arm.
+        :return:
+        """
+        self.r2_top_arm.set_angle(180.0)
+
+    def open_bottom_arm(self):
+        """
+        Open the bottom arm.
+        :return:
+        """
+        self.r2_bottom_arm.set_angle(180.0)
+
     def close_arms(self):
         """
         Close the arms.
         :return:
         """
         self.r2_top_arm.set_angle(0.0)
+        self.r2_bottom_arm.set_angle(0.0)
+
+    def close_top_arm(self):
+        """
+        Close the top arm.
+        :return:
+        """
+        self.r2_top_arm.set_angle(0.0)
+
+    def close_bottom_arm(self):
+        """
+        Close the top arm.
+        :return:
+        """
         self.r2_bottom_arm.set_angle(0.0)
 
     def top_say_hello(self):
@@ -74,6 +102,16 @@ class Arms:
         time.sleep(0.5)
         self.r2_bottom_arm.set_angle(0.0)
         time.sleep(0.5)
+
+    def test_arms(self):
+        self.open_arms()
+        time.sleep(0.8)
+        self.close_arms()
+        time.sleep(0.8)
+        self.top_say_hello()
+        time.sleep(0.3)
+        self.bottom_say_hello()
+        time.sleep(0.8)
 
 
 if __name__ == '__main__':
