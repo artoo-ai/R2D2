@@ -2,21 +2,95 @@
 <html>
   <head>
     <title>R2D2 Controls</title>
+      <style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition: all 0.5s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
   </head>
 
   <body>
-    Hello, World!
 
     <form action="/test_arms/" method="get">
-        <button name="testArmsBtn" type="submit">Test Arms</button>
+        <button class="button" style="vertical-align:middle" name="testArmsBtn" type="submit"><span>Test Arms</span></button>
     </form>
 
     <form action="/open_top_arm/" method="get">
-        <button name="openTopArmBtn" type="submit">Open Top Arm</button>
+        <button class="button" style="vertical-align:middle" name="openTopArmBtn" type="submit"><span>Open Top Arm</span></button>
     </form>
 
     <form action="/open_bottom_arm/" method="get">
-        <button name="openBottomArmBtn" type="submit">Open Bottom Arm</button>
+        <button class="button" style="vertical-align:middle" name="openBottomArmBtn" type="submit"><span>Open Bottom Arm</span></button>
     </form>
+
+  <img src="/static/r2d2.png" alt="Workplace" usemap="#workmap">
+
+    <map name="workmap">
+      <area shape="rect" coords="34,44,270,350" alt="TestArms" href="/test_arms/">
+      <area shape="rect" coords="360,600,800,700" alt="TopArm" href="/open_top_arm/">
+      <area shape="rect" coords="350,720,820,800" alt="BottomArm" href="/open_bottom_arm/">
+    </map>
   </body>
 </html>

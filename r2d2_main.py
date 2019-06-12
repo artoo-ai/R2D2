@@ -33,7 +33,7 @@ class R2D2:
         template_dir = os.path.join(template_dir, 'web')
         print(template_dir)
 
-        app = Flask(__name__, template_folder=template_dir)
+        app = Flask(__name__, template_folder=template_dir, static_url_path='/static')
 
         @app.route("/")
         def index():
@@ -60,7 +60,7 @@ class R2D2:
             self.arms.close_bottom_arm()
             return render_template('index.html')
 
-        app.run()
+        app.run(host='0.0.0.0')
 
     def test_arms(self):
         """
