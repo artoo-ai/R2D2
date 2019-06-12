@@ -68,29 +68,60 @@
   opacity: 1;
   right: 0;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 </style>
   </head>
 
   <body>
+<div class="row">
+  <div class="column">
+        <form action="/test_arms/" method="get">
+            <button class="button" style="vertical-align:middle" name="testArmsBtn" type="submit"><span>Test Arms</span></button>
+        </form>
 
-    <form action="/test_arms/" method="get">
-        <button class="button" style="vertical-align:middle" name="testArmsBtn" type="submit"><span>Test Arms</span></button>
-    </form>
+        <form action="/open_top_arm/" method="get">
+            <button class="button" style="vertical-align:middle" name="openTopArmBtn" type="submit"><span>Open Top Arm</span></button>
+        </form>
 
-    <form action="/open_top_arm/" method="get">
-        <button class="button" style="vertical-align:middle" name="openTopArmBtn" type="submit"><span>Open Top Arm</span></button>
-    </form>
+        <form action="/open_bottom_arm/" method="get">
+            <button class="button" style="vertical-align:middle" name="openBottomArmBtn" type="submit"><span>Open Bottom Arm</span></button>
+        </form>
+    </div>
 
-    <form action="/open_bottom_arm/" method="get">
-        <button class="button" style="vertical-align:middle" name="openBottomArmBtn" type="submit"><span>Open Bottom Arm</span></button>
-    </form>
+    <div class="column">
+        <img src="/static/r2d2.png" alt="Workplace" usemap="#workmap">
 
-  <img src="/static/r2d2.png" alt="Workplace" usemap="#workmap">
-
-    <map name="workmap">
-      <area shape="rect" coords="34,44,270,350" alt="TestArms" href="/test_arms/">
-      <area shape="rect" coords="360,600,800,700" alt="TopArm" href="/open_top_arm/">
-      <area shape="rect" coords="350,720,820,800" alt="BottomArm" href="/open_bottom_arm/">
-    </map>
+        <map name="workmap">
+          <area shape="rect" coords="34,44,270,350" alt="TestArms" href="/test_arms/">
+          <area shape="rect" coords="360,600,800,700" alt="TopArm" href="/open_top_arm/">
+          <area shape="rect" coords="350,720,820,800" alt="BottomArm" href="/open_bottom_arm/">
+        </map>
+    </div>
+  </div>
   </body>
 </html>
