@@ -14,7 +14,7 @@ class R2D2:
         Initialize the R2D2.
         """
         # Init the Arms
-        self.arms = Arms(17, 4)
+        self.arms = Arms(0, 1)
 
         # Init the web server for the GUI
         #self.web_thread = Thread(target=self.init_web_server)

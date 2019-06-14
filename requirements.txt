@@ -1,3 +1,5 @@
 RPi.gpio
 flask
 flask-api
+pyserial
+adafruit-circuitpython-servokit

@@ -4,6 +4,9 @@ import sys
 
 
 class Rpi3ServoControl:
+    """
+    Use the RPI3 to control the servos.
+    """
 
     def __init__(self, servo_pin, init_angle=0.0):
         self.servo_pin = servo_pin
@@ -44,6 +47,11 @@ class Rpi3ServoControl:
         :param angle: Angle to move the servo
         :return:
         """
+        if angle > 180:
+            angle = 180
+        if angle < 0:
+            angle = 0
+
         # Cacluate the duty cycle to move to that angle
         dc = Rpi3ServoControl.calc_duty_cycle_from_angle(angle)
         print("Pin: " + str(self.servo_pin) + " Angle: " + str(angle) + " DC: " + str(dc))
