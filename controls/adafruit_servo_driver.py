@@ -3,7 +3,7 @@ import time
 
 class AdafruitServoControl:
     """
-    Use the Maestro board to control the servos.
+    Use the Adafruit PCA9685 board to control the servos.
 
     https://learn.adafruit.com/adafruit-16-channel-servo-driver-with-raspberry-pi?view=all
 
