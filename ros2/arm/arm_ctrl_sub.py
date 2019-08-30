@@ -24,10 +24,10 @@ from std_msgs.msg import String
 class R2D2ArmSubscriber(Node):
 
     def __init__(self):
-        super().__init__('arm_ctrl_sub')
+        super().__init__('arm_ctrl_sub')                        # Create Node Name
         self.subscription = self.create_subscription(
             String,
-            'r2d2_arm_topic',
+            'r2d2_arm_topic',                                   # Create topic name
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
@@ -38,7 +38,7 @@ class R2D2ArmSubscriber(Node):
     def listener_callback(self, msg):
         self.get_logger().info('R2D2 Arm Ctrl Sub: "%s"' % msg.data)
 
-        if msg.data== "arm_open":
+        if msg.data=="arm_open":
             self.r2d2_arms.open_arms()
             self.r2d2_arms.close_arms()
             print("Open Arms")

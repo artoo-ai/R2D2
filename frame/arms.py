@@ -1,10 +1,10 @@
-from controls.adafruit_servo_driver import AdafruitServoControl
+from r2d2.controls.adafruit_servo_driver import AdafruitServoControl
 import time
 
 
 class Arms:
 
-    def __init__(self, top_arm_pin, bottom_arm_pin):
+    def __init__(self, top_arm_pin=0, bottom_arm_pin=1):
         """
         Set the pins and close the arms.
         :param top_arm_pin: Top Servo Pin.
