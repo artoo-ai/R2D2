@@ -47,7 +47,7 @@ class R2D2ArmSubscriber(Node):
             self.r2d2_arms.open_top_arm()
             self.get_logger().info('R2D2 Open Top Arms : "%s"' % msg.data)
         if msg.data=="open_bottom_arm":
-            self.r2d2_arms.open_bottom_arm
+            self.r2d2_arms.open_bottom_arm()
             self.get_logger().info('R2D2 Open Bottom Arms : "%s"' % msg.data)
         if msg.data=="close_top_arm":
             self.r2d2_arms.close_top_arm()
