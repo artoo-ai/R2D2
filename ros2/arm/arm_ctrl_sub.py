@@ -39,18 +39,34 @@ class R2D2ArmSubscriber(Node):
         if msg.data=="arm_open":
             self.r2d2_arms.open_arms()
             self.r2d2_arms.close_arms()
-            print("Open Arms")
+            self.get_logger().info('R2D2 Open arms : "%s"' % msg.data)
         if msg.data=="test_arms":
             self.r2d2_arms.test_arms()
-            print("Test Arms")
-
-
+            self.get_logger().info('R2D2 Test Arms : "%s"' % msg.data)
+        if msg.data=="open_top_arm"
+            self.r2d2_arms.open_top_arm()
+            self.get_logger().info('R2D2 Open Top Arms : "%s"' % msg.data)
+        if msg.data=="open_bottom_arm"
+            self.r2d2_arms.open_bottom_arm
+            self.get_logger().info('R2D2 Open Bottom Arms : "%s"' % msg.data)
+        if msg.data=="close_top_arm"
+            self.r2d2_arms.close_top_arm()
+            self.get_logger().info('R2D2 Close Top Arms : "%s"' % msg.data)
+        if msg.data=="close_bottom_arm"
+            self.r2d2_arms.close_bottom_arm()
+            self.get_logger().info('R2D2 Close Bottom Arms : "%s"' % msg.data)
 
 def main(args=None):
+    """
+    Create ROS2 Node.
+    """
+    # Create ROS2 Python
     rclpy.init(args=args)
 
+    # Create Node
     r2d2_arm_subscriber = R2D2ArmSubscriber()
 
+    # Keep Node Alive
     rclpy.spin(r2d2_arm_subscriber)
 
     # Destroy the node explicitly

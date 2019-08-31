@@ -112,10 +112,16 @@ class R2d2WebGui(Node):
         self.get_logger().info('Publishing: "%s"' % msg.data)
 
 def main(args=None):
+    """
+    Create ROS2 Node
+    """
+    # Create ROS2 Python
     rclpy.init(args=args)
 
+    # Create Node
     r2d2_web_gui = R2d2WebGui()
 
+    # Keep Node alive
     rclpy.spin(r2d2_web_gui)
 
     # Destroy the node explicitly
