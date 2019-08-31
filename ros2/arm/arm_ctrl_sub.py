@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright 2016 Open Source Robotics Foundation, Inc.
+# Copyright 2019 Rico.ai
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,9 +15,7 @@
 
 import rclpy
 from rclpy.node import Node
-#from arms import Arms
 from r2d2.frame.arms import Arms
-
 from std_msgs.msg import String
 
 
@@ -25,12 +23,12 @@ class R2D2ArmSubscriber(Node):
 
     def __init__(self):
         super().__init__('arm_ctrl_sub')                        # Create Node Name
-        self.subscription = self.create_subscription(
-            String,
+        self.subscription = self.create_subscription(           # Create Subscriber
+            String,                                             # Take string messages
             'r2d2_arm_topic',                                   # Create topic name
-            self.listener_callback,
+            self.listener_callback,                             # Set Callback
             10)
-        self.subscription  # prevent unused variable warning
+        self.subscription                                       # prevent unused variable warning
 
         # Create the R2D2 Arm
         self.r2d2_arms = Arms()
