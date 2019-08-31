@@ -39,8 +39,8 @@ class R2d2WebGui(Node):
 
     def init_web_server(self):
         template_dir =os.path.dirname(os.path.realpath(__file__))
-        template_dir = os.path.join(template_dir, 'web')
-        print(template_dir)
+        template_dir = os.path.join(template_dir, '../../web')
+        self.get_logger().info(template_dir)
 
         app = Flask(__name__, template_folder=template_dir, static_url_path='/static')
 
