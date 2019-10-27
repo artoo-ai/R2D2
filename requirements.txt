@@ -3,3 +3,4 @@ flask
 flask-api
 pyserial
 adafruit-circuitpython-servokit
+adafruit-circuitpython-max7219
